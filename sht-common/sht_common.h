@@ -31,7 +31,7 @@
 #ifndef SHT_COMMON_H
 #define SHT_COMMON_H
 
-#include "sensirion_arch_config.h"
+#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_arch_config.h"
 
 #ifdef __cplusplus
 extern "C" {

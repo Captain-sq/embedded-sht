@@ -40,7 +40,7 @@
 #ifndef SHT_H
 #define SHT_H
 
-#include "sensirion_arch_config.h"
+#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_arch_config.h"
 #include "git_version.h"
 
 #ifdef __cplusplus
