@@ -31,15 +31,15 @@
 #ifndef SHT_COMMON_H
 #define SHT_COMMON_H
 
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_arch_config.h"
+#include "../Src/SHT3x/embedded-common/sensirion_arch_config.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-s8 sht_common_read_ticks(u8 address, s32 *temperature_ticks, s32 *humidity_ticks);
+extern s8 sht_common_read_ticks(u8 address, s32 *temperature_ticks, s32 *humidity_ticks);
 
-s8 sht_common_read_measurement(u8 address, s32 *temperature, s32 *humidity);
+extern s8 sht_common_read_measurement(u8 address, s32 *temperature, s32 *humidity);
 
 #ifdef __cplusplus
 }

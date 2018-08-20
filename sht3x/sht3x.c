@@ -37,11 +37,11 @@
  * interface. It supports measurements without clock stretching only.
  */
 
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_arch_config.h"
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_i2c.h"
+#include "../Src/SHT3x/embedded-common/sensirion_arch_config.h"
+#include "../Src/SHT3x/embedded-common/sensirion_i2c.h"
 #include "../Src/SHT3x/embedded-sht/sht-common/sht.h"
 #include "../Src/SHT3x/embedded-sht/sht-common/sht_common.h"
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_common.h"
+#include "../Src/SHT3x/embedded-common/sensirion_common.h"
 
 /* all measurement commands return T (CRC) RH (CRC) */
 #if USE_SENSIRION_CLOCK_STRETCHING

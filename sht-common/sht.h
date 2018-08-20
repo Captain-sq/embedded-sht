@@ -40,17 +40,17 @@
 #ifndef SHT_H
 #define SHT_H
 
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_arch_config.h"
+#include "../Src/SHT3x/embedded-common/sensirion_arch_config.h"
 #include "git_version.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define STATUS_OK 0
-#define STATUS_ERR_BAD_DATA (-1)
-#define STATUS_CRC_FAIL (-2)
-#define STATUS_UNKNOWN_DEVICE (-3)
+#define SHT3x_STATUS_OK               0
+#define SHT3x_STATUS_ERR_BAD_DATA     (-1)
+#define SHT3x_STATUS_CRC_FAIL         (-2)
+#define SHT3x_STATUS_UNKNOWN_DEVICE   (-3)
 
 /**
  * Detects if a sensor is connected by reading out the ID register.
@@ -59,7 +59,7 @@ extern "C" {
  *
  * @return 0 if a sensor was detected
  */
-s8 sht_probe(void);
+extern s8 sht_probe(void);
 
 /**
  * Starts a measurement and then reads out the results. This function blocks
@@ -72,7 +72,7 @@ s8 sht_probe(void);
  * @param humidity      the address for the result of the relative humidity measurement
  * @return              0 if the command was successful, else an error code.
  */
-s8 sht_measure_blocking_read(s32 *temperature, s32 *humidity);
+extern s8 sht_measure_blocking_read(s32 *temperature, s32 *humidity);
 
 /**
  * Starts a measurement in high precision mode. Use sht_read() to read out the values,
@@ -81,7 +81,7 @@ s8 sht_measure_blocking_read(s32 *temperature, s32 *humidity);
  *
  * @return     0 if the command was successful, else an error code.
  */
-s8 sht_measure(void);
+extern s8 sht_measure(void);
 
 /**
  * Reads out the results of a measurement that was previously started by
@@ -94,7 +94,7 @@ s8 sht_measure(void);
  * @param humidity      the address for the result of the relative humidity measurement
  * @return              0 if the command was successful, else an error code.
  */
-s8 sht_read(s32 *temperature, s32 *humidity);
+extern s8 sht_read(s32 *temperature, s32 *humidity);
 
 /**
  * Enable or disable the SHT's sleep mode between measurements, if supported.
@@ -105,28 +105,28 @@ s8 sht_read(s32 *temperature, s32 *humidity);
  * @return              0 if the command was successful,
  *                      1 if an error occured or if sleep mode is not supported
  */
-s8 sht_disable_sleep(u8 disable_sleep);
+extern s8 sht_disable_sleep(u8 disable_sleep);
 
 /**
  * Enable or disable the SHT's low power mode
  *
  * @param enable_low_power_mode 1 to enable low power mode, 0 to disable
  */
-void sht_enable_low_power_mode(u8 enable_low_power_mode);
+extern void sht_enable_low_power_mode(u8 enable_low_power_mode);
 
 /**
  * sht_get_driver_version() - Return the driver version
  *
  * @return Driver version string
  */
-const char *sht_get_driver_version(void);
+extern const char *sht_get_driver_version(void);
 
 /**
  * Returns the configured SHTxx address.
  *
  * @return SHTxx_ADDRESS
  */
-u8 sht_get_configured_sht_address(void);
+extern u8 sht_get_configured_sht_address(void);
 
 #ifdef __cplusplus
 }

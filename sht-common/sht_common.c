@@ -34,11 +34,11 @@
  * This module provides functionality that is common to all SHT drivers
  */
 
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_arch_config.h"
+#include "../Src/SHT3x/embedded-common/sensirion_arch_config.h"
 #include "sht_common.h"
 #include "sht.h"
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_common.h"
-#include "../Src/SHT3x/embedded-sht/embedded-common/sensirion_i2c.h"
+#include "../Src/SHT3x/embedded-common/sensirion_common.h"
+#include "../Src/SHT3x/embedded-common/sensirion_i2c.h"
 
 s8 sht_common_read_ticks(u8 address, s32 *temperature_ticks, s32 *humidity_ticks)
 {
@@ -48,13 +48,13 @@ s8 sht_common_read_ticks(u8 address, s32 *temperature_ticks, s32 *humidity_ticks
         return ret;
     if (sensirion_common_check_crc(data, 2, data[2]) ||
             sensirion_common_check_crc(data + 3, 2, data[5])) {
-        return STATUS_CRC_FAIL;
+        return SHT3x_STATUS_CRC_FAIL;
     }
 
     *temperature_ticks = (data[1] & 0xff) | ((s32)data[0] << 8);
     *humidity_ticks = (data[4] & 0xff) | ((s32)data[3] << 8);
 
-    return STATUS_OK;
+    return SHT3x_STATUS_OK;
 }
 
 s8 sht_common_read_measurement(u8 address, s32 *temperature, s32 *humidity)
